@@ -10,8 +10,8 @@ let playerEl = document.getElementById("player-display")
 let startBtn = document.getElementById("start-btn")
 let cardBtn = document.getElementById("card-btn")
 
-let firstCard = getRandom(1, 11)
-let secondCard = getRandom(1, 11)
+// let firstCard = getRandom(1, 11)
+// let secondCard = getRandom(1, 11)
 
 // let sum = 0
 
@@ -26,8 +26,9 @@ function getRandom(min, max) {
 }
 
 startBtn.addEventListener("click", function() {
-    // let firstCard = getRandom(1, 11)
-    // let secondCard = getRandom(1, 11)
+    cards = []
+    let firstCard = getRandom(1, 11)
+    let secondCard = getRandom(1, 11)
     cards = [firstCard, secondCard]   
     sum = firstCard + secondCard
     // cardsEl.textContent = `${firstCard} ${secondCard}`
