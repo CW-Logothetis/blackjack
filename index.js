@@ -10,14 +10,11 @@ let playerEl = document.getElementById("player-display")
 let startBtn = document.getElementById("start-btn")
 let cardBtn = document.getElementById("card-btn")
 
-// let firstCard = getRandom(1, 11)
-// let secondCard = getRandom(1, 11)
-
-// let sum = 0
+let cards = []
+let sum = 0
 
 playerEl.textContent = `${user.name}: ${user.chips}€`
 
-// let cards = []
 
 function getRandom(min, max) {
     min = Math.ceil(min);
