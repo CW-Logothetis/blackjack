@@ -157,17 +157,18 @@ function newCard() {
 
 function stand() {
         
-    if (dealerSum < 17) {
-        let newDealerCard = getRandomCard()
-        getRandomCard()
-        dealer.push(newDealerCard)
-        dealerSum = getSum(dealer)
-        
-    } else {
-        message = "MESSAGE"
-        
-    }
+    let newDealerCard = getRandomCard()
+    dealer.push(newDealerCard)
+    dealerSum = getSum(dealer)
     
-    messageEl.textContent = message
-    renderGame()
+if (dealerSum < 17) {
+    stand()
+
+} else {
+    message = "MESSAGE"
+}
+
+messageEl.textContent = message
+
+renderGame()
 }
