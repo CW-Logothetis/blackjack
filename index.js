@@ -48,6 +48,7 @@ startBtn.addEventListener("click", function() {
     let firstCard = getRandom(1, 11)
     let secondCard = getRandom(1, 11)
     cards = [firstCard, secondCard]   
+    console.log(cards)
     sum = firstCard + secondCard
     cardsEl.textContent = " "
     for (let i = 0; i < cards.length; i++) {
