@@ -151,7 +151,7 @@ function newCard() {
     }
 }
 
-function stand() {
+function DealerCard() {
         
         let newDealerCard = getRandomCard()
         dealer.push(newDealerCard)
@@ -159,12 +159,24 @@ function stand() {
         renderGame()
         
     if (dealerSum < 17) {
-        stand()
+        DealerCard()
     } 
     else {
         message = "MESSAGE"
     }
-    
-    messageEl.textContent = message
-    
+    messageEl.textContent = message   
+}
+
+function stand() {
+    DealerCard()
+}
+
+
+declareWinner()
+// if dealerSum is more than playerSum, dealer wins
+// else player wins
+if (dealerSum < 17 && dealerSum >= playerSum) {
+    message = "Dealer Wins!"
+} else {
+    message = `${player.name} Wins!`
 }
