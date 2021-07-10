@@ -138,6 +138,7 @@ function renderGame() {
     }
     messageEl.textContent = message
     dealerSumEl.textContent = "Sum: " + dealerSum
+    
 }
 
 
@@ -165,6 +166,7 @@ function DealerCard() {
         message = "MESSAGE"
     }
     messageEl.textContent = message   
+    declareWinner()
 }
 
 function stand() {
@@ -172,11 +174,12 @@ function stand() {
 }
 
 
-declareWinner()
+function declareWinner() {
 // if dealerSum is more than playerSum, dealer wins
 // else player wins
 if (dealerSum < 17 && dealerSum >= playerSum) {
     message = "Dealer Wins!"
 } else {
     message = `${player.name} Wins!`
+}
 }
