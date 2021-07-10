@@ -151,24 +151,20 @@ function newCard() {
     }
 }
 
-
-
-
-
 function stand() {
         
-    let newDealerCard = getRandomCard()
-    dealer.push(newDealerCard)
-    dealerSum = getSum(dealer)
+        let newDealerCard = getRandomCard()
+        dealer.push(newDealerCard)
+        dealerSum = getSum(dealer)
+        renderGame()
+        
+    if (dealerSum < 17) {
+        stand()
+    } 
+    else {
+        message = "MESSAGE"
+    }
     
-if (dealerSum < 17) {
-    stand()
-
-} else {
-    message = "MESSAGE"
-}
-
-messageEl.textContent = message
-
-renderGame()
+    messageEl.textContent = message
+    
 }
