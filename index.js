@@ -54,13 +54,15 @@ let deck = [
 ]
 
 let player = {
-    name: "Per",
+    name: "Chris",
     chips: 200
 }
 
+let playerBet = 0
+
 let playerCards = []
 let playerSum = 0
-let dealer = []
+let dealerCards = []
 let dealerSum = 0
 
 let hasBlackJack = false
@@ -73,6 +75,7 @@ let dealerSumEl = document.getElementById("sum-dealer-el")
 let playerCardsEl = document.getElementById("cards-el")
 let dealerEl = document.getElementById("dealer-el")
 let playerEl = document.getElementById("player-el")
+let betEl = document.getElementById("bet-el")
 
 playerEl.textContent = player.name + ": $" + player.chips
 
@@ -103,8 +106,8 @@ function startGame() {
     
     dealerAlive = true
     let dealerFirst = getRandomCard()
-    dealer = [dealerFirst]
-    dealerSum = getSum(dealer)
+    dealerCards = [dealerFirst]
+    dealerSum = getSum(dealerCards)
     // console.log(dealerFirst)
     renderGame()
 }
@@ -118,8 +121,8 @@ function renderGame() {
         `
     }
     dealerEl.textContent = ""
-    for (let i = 0; i < dealer.length; i++) {
-        let path = `images/${dealer[i].value + dealer[i].suit}.png`
+    for (let i = 0; i < dealerCards.length; i++) {
+        let path = `images/${dealerCards[i].value + dealerCards[i].suit}.png`
         dealerEl.innerHTML += `
             <img src="${path}" class="card-img">
         `
@@ -152,34 +155,40 @@ function newCard() {
     }
 }
 
-function DealerCard() {
+function dealerCard() {
         
         let newDealerCard = getRandomCard()
-        dealer.push(newDealerCard)
-        dealerSum = getSum(dealer)
+        dealerCards.push(newDealerCard)
+        dealerSum = getSum(dealerCards)
         renderGame()
         
     if (dealerSum < 17) {
-        DealerCard()
+        dealerCard()
     } 
     else {
-        message = "MESSAGE"
-    }
-    messageEl.textContent = message   
-    declareWinner()
+        declareWinner()
+    } 
+    
 }
 
 function stand() {
-    DealerCard()
+    if (playerAlive) {
+    dealerCard()
+    }
 }
-
 
 function declareWinner() {
-// if dealerSum is more than playerSum, dealer wins
-// else player wins
-if (dealerSum < 17 && dealerSum >= playerSum) {
-    message = "Dealer Wins!"
-} else {
-    message = `${player.name} Wins!`
+if (playerSum > dealerSum || dealerSum > 21) {
+    messageEl.textContent = `${player.name} Wins!`
+    } else if (dealerSum > playerSum) {
+        messageEl.textContent= "Dealer wins!"
+    }
+    else {
+        messageEl.textContent = "It's a tie."
+    }
 }
+
+function bet() {
+    playerBet = player.chips - 10
+    betEl.textContent = playerBet
 }
