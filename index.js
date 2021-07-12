@@ -77,6 +77,7 @@ let dealerEl = document.getElementById("dealer-el")
 let playerEl = document.getElementById("player-el")
 let betEl = document.getElementById("bet-el")
 
+
 playerEl.textContent = player.name + ": $" + player.chips
 
 function getRandomCard() {
@@ -134,7 +135,6 @@ function renderGame() {
     } else if (playerSum = 21) {
         message = "You've got Blackjack!"
         hasBlackJack = true
-        
     } else {
         message = "You're out of the game!"
         playerAlive = false
@@ -204,4 +204,20 @@ function bet() {
         playerBet += 10 
         betEl.textContent = "Your bet: $" + playerBet
     }
+}
+
+
+
+function playAgain() {
+    playerBet = 0
+
+    playerCards = []
+    playerSum = 0
+    dealerCards = []
+    dealerSum = 0
+    
+    hasBlackJack = false
+    playerAlive = false
+    dealerAlive = false
+    message = ""
 }
