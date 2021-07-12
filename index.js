@@ -97,7 +97,7 @@ function getSum(cardsArray) {
     return cardsSum
 }
 
-function startGame() {
+function dealCards() {
     playerAlive = true
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
@@ -108,7 +108,6 @@ function startGame() {
     let dealerFirst = getRandomCard()
     dealerCards = [dealerFirst]
     dealerSum = getSum(dealerCards)
-    // console.log(dealerFirst)
     renderGame()
 }
 
@@ -132,9 +131,10 @@ function renderGame() {
     playerSumEl.textContent = "Sum: " + playerSum
     if (playerSum <= 20) {
         message = "Do you want to draw a new card?"
-    } else if (playerSum === 21) {
+    } else if (playerSum = 21) {
         message = "You've got Blackjack!"
         hasBlackJack = true
+        
     } else {
         message = "You're out of the game!"
         playerAlive = false
@@ -146,7 +146,7 @@ function renderGame() {
 
 
 function newCard() {
-    if (playerAlive === true && hasBlackJack === false) {
+    if (playerAlive ===true && hasBlackJack === false) {
         let newPlayerCard = getRandomCard()
         // sum += card
         playerCards.push(newPlayerCard)
@@ -172,7 +172,7 @@ function dealerCard() {
 }
 
 function stand() {
-    if (playerAlive) {
+    if (playerAlive === true && hasBlackJack === false) {
     dealerCard()
     }
 }
@@ -180,15 +180,28 @@ function stand() {
 function declareWinner() {
 if (playerSum > dealerSum || dealerSum > 21) {
     messageEl.textContent = `${player.name} Wins!`
+    player.chips = player.chips + (playerBet * 2)
+    playerBet = 0
+    
     } else if (dealerSum > playerSum) {
         messageEl.textContent= "Dealer wins!"
+        playerBet = 0
     }
     else {
         messageEl.textContent = "It's a tie."
+        player.chips += playerBet
+        playerBet = 0
     }
+    playerAlive = false
+    playerEl.textContent = player.name + ": $" + player.chips
+    betEl.textContent = "Your bet: $" + playerBet
 }
 
 function bet() {
-    playerBet = player.chips - 10
-    betEl.textContent = playerBet
+    if (playerAlive === false && hasBlackJack === false && player.chips >= 10) {
+        player.chips = player.chips - 10
+        playerEl.textContent = player.name + ": $" + player.chips
+        playerBet += 10 
+        betEl.textContent = "Your bet: $" + playerBet
+    }
 }
