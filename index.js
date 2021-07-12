@@ -211,14 +211,9 @@ function playAgain() {
     dealerSum = 0
     playerBet = 0
     
-    // playerCardsEl.innerHTML = ""
-    // dealerEl.textContent = ""
-    // betEl.textContent = ""
-    // message = "Place a new bet"
-
-    playerCardsEl = ""
-    dealerEl = ""
-    betEl = ""
+    playerCardsEl.innerHTML = ""
+    dealerEl.textContent = ""
+    betEl.textContent = ""
     message = "Place a new bet"
 
     hasBlackJack = false
