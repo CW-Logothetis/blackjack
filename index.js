@@ -220,4 +220,5 @@ function playAgain() {
     playerAlive = false
     dealerAlive = false
     message = ""
+    renderGame()
 }
