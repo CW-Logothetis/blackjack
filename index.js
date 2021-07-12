@@ -219,4 +219,5 @@ function playAgain() {
     hasBlackJack = false
     playerAlive = false
     dealerAlive = false
+    renderGame()
 }
