@@ -144,7 +144,7 @@ function renderGame() {
 
 
 function newCard() {
-    if (playerAlive ===true && hasBlackJack === false) {
+    if (playerAlive === true && hasBlackJack === false) {
         let newPlayerCard = getRandomCard()
         // sum += card
         playerCards.push(newPlayerCard)
@@ -216,7 +216,7 @@ function playAgain() {
     betEl.textContent = ""
     message = "Place a new bet"
 
-    hasBlackJack = false
+    // hasBlackJack = false
     playerAlive = false
     dealerAlive = false
     renderGame()
