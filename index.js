@@ -58,16 +58,18 @@ let player = {
     chips: 200
 }
 
-let playerBet = 0
+
 
 let playerCards = []
 let playerSum = 0
 let dealerCards = []
 let dealerSum = 0
+let playerBet = 0
 
 let hasBlackJack = false
 let playerAlive = false
 let dealerAlive = false
+
 let message = ""
 let messageEl = document.getElementById("message-el")
 let playerSumEl = document.getElementById("sum-el")
@@ -81,10 +83,6 @@ let betEl = document.getElementById("bet-el")
 playerEl.textContent = player.name + ": $" + player.chips
 
 function getRandomCard() {
-    // let randomCard = Math.floor( Math.random()*deck.length )
-    // deck.splice(randomCard, 1)
-    // return deck[randomCard]
-    // From Per
     let randomCardIndex = Math.floor( Math.random()*52 )
     deck.splice(randomCardIndex, 1)
     return deck[randomCardIndex] 
@@ -206,19 +204,24 @@ function bet() {
     }
 }
 
-
-
 function playAgain() {
-    playerBet = 0
-
     playerCards = []
     playerSum = 0
     dealerCards = []
     dealerSum = 0
+    playerBet = 0
     
+    // playerCardsEl.innerHTML = ""
+    // dealerEl.textContent = ""
+    // betEl.textContent = ""
+    // message = "Place a new bet"
+
+    playerCardsEl = ""
+    dealerEl = ""
+    betEl = ""
+    message = "Place a new bet"
+
     hasBlackJack = false
     playerAlive = false
     dealerAlive = false
-    message = ""
-    renderGame()
 }
