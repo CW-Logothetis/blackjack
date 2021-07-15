@@ -79,19 +79,14 @@ let dealerSumEl = document.getElementById("sum-dealer-el")
 
 let betEl = document.getElementById("bet-el")
 
+window.onload = function() {
+    modal.style.display = "block"
+  }
 
+hideBet()
 hidePlayAgain()
 hideNewCard()
 hideStand()
-
-
-// betModal()
-
-// document.getElementById("bet-modal").addEventListener("load", betModal)
-
-// function betModal() {
-//     betModal.style.display = "block"
-// }
 
 
 function renderPlayer () {
@@ -233,6 +228,73 @@ function bet() {
     }
 }
 
+// let betAll = document.getElementById("all-in")
+let bet05 = document.getElementById("c05")
+let bet10 = document.getElementById("c10")
+let bet25 = document.getElementById("c25")
+let bet50 = document.getElementById("c50")
+let bet100 = document.getElementById("c100")
+
+// betAll.addEventListener("click", function() {
+//     if (dealerAlive === false && player.chips >= 10) {
+        // player.chips -= 5
+        // playerBet = player.chips
+        // playerNameEl.textContent = player.name + ": $" + player.chips
+        // playerBet = player.chips
+//         betEl.textContent = "Your bet: $" + playerBet
+//     }
+// })
+
+bet05.addEventListener("click", function() {
+    if (dealerAlive === false && player.chips >= 5) {
+        player.chips -= 5
+        playerNameEl.textContent = player.name + ": $" + player.chips
+        playerBet += 5 
+        betEl.textContent = "Your bet: $" + playerBet
+        // renderPlayer() from Per why?
+    }
+})
+
+bet10.addEventListener("click", function() {
+    if (dealerAlive === false && player.chips >= 10) {
+        player.chips -= 10
+        playerNameEl.textContent = player.name + ": $" + player.chips
+        playerBet += 10
+        betEl.textContent = "Your bet: $" + playerBet
+        // renderPlayer() from Per why?
+    }
+})
+
+bet25.addEventListener("click", function() {
+    if (dealerAlive === false && player.chips >= 25) {
+        player.chips -= 25
+        playerNameEl.textContent = player.name + ": $" + player.chips
+        playerBet += 25
+        betEl.textContent = "Your bet: $" + playerBet
+        // renderPlayer() from Per why?
+    }
+})
+
+bet50.addEventListener("click", function() {
+    if (dealerAlive === false && player.chips >= 50) {
+        player.chips -= 50
+        playerNameEl.textContent = player.name + ": $" + player.chips
+        playerBet += 50
+        betEl.textContent = "Your bet: $" + playerBet
+        // renderPlayer() from Per why?
+    }
+})
+
+bet100.addEventListener("click", function() {
+    if (dealerAlive === false && player.chips >= 100) {
+        player.chips -= 100
+        playerNameEl.textContent = player.name + ": $" + player.chips
+        playerBet += 100
+        betEl.textContent = "Your bet: $" + playerBet
+        // renderPlayer() from Per why?
+    }
+})
+
 function hideShowButtons() {
         hideNewCard()
         hideStand()
@@ -273,7 +335,7 @@ function showStand() {
 
 function hidePlayAgain() {
     document.getElementById("play-again").style.visibility = "hidden"
-        betModal.style.display = "block"
+        // betModal.style.display = "block"
 }
 
 function showPlayAgain() {
@@ -309,19 +371,19 @@ function playAgain() {
 // MODALS
 
 // Get the modal
-let betModal = document.getElementById("bet-modal");
+let modal = document.getElementById("bet-modal");
 
 // Get the <span> element that closes the modal
-let betSpan = document.getElementsByClassName("bet-close")[0];
+let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  betModal.style.display = "none"
+  modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    betModal.style.display = "none"
-  }
-}
+// window.onclick = function(event) {
+//   if (event.target !== modal) {
+//     modal.style.display = "none";
+//   }
+// }

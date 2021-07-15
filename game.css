@@ -7,16 +7,20 @@ body {
     text-align: center;
 }
 
-.card-img {
-    width: 50px;
-}
-
 h1 {
     color: goldenrod;
 }
 
 #message-el {
     font-style: italic;
+}
+
+.chips {
+    width: 100px;
+}
+
+.card-img {
+    width: 50px;
 }
 
 .container-btn {
@@ -37,22 +41,22 @@ button {
     margin: 10px auto;
     display: flex;
     justify-content: center;
-    
 }
 
+
 /* Bet Modal (background) */
-#bet-modal {
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
-    width: 80%; /* Full width */
-    height: 80%; /* Full height */
+    width: 25%; /* Half width */
+    height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    background-color: white; /* Fallback color */
+    /* background-color: rgba(245, 239, 239, 0.9);  w/ opacity */
   }
   
   
@@ -68,16 +72,17 @@ button {
   }
 
   /* The Close Button */
-.bet-close {
+.close {
     color: #aaa;
     float: right;
+    margin-right: 20px;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .bet-close:hover,
-  .bet-close:focus {
-    color: black;
+  .close:hover,
+  .close:focus {
+    color: darkred;
     text-decoration: none;
     cursor: pointer;
   }
