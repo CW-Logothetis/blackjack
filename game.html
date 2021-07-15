@@ -3,6 +3,8 @@
         <link rel="stylesheet" href="game.css">
     </head>
     <body>
+
+    <main>
         <h1>Blackjack</h1>
         <p id="message-el">Want to play a round?<br>Place your bet, then 'DEAL CARDS'.</p>
         <p id="dealer-el"><i></i></p>
@@ -11,7 +13,7 @@
         <p id="sum-el"></p>
 
         <div class="container-btn">
-            <button id="bet"onclick="bet()">BET</button>
+            <button id="bet" onclick="bet()">BET</button>
             <button id="deal-cards" onclick="dealCards()">DEAL CARDS</button>
             <button id="new-card" onclick="newCard()">NEW CARD</button>
             <button id="stand" onclick="stand()">STAND</button>
@@ -20,6 +22,24 @@
         
         <p id="player-el"></p>
         <p id="bet-el"></p>
+   
+
+    <!-- Bet Modal -->
+    <div id="bet-modal" class="modal">
+
+    <!-- Bet Modal content -->
+    <div class="bet-modal-content">
+      <span class="bet-close">&times;</span>
+      <p>Bank: playerSum€</p>
+      <button>ALL IN</button>
+      <p>CHIPS</p>
+    </div>
+  
+  </div>
+
+</main>
+        <script src="index.js"></script>
         <script src="game.js"></script>
+
     </body>
 </html>

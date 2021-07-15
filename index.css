@@ -83,7 +83,7 @@ container {
     margin: 50px;
   }
 
-.play-now-btn {
+#play-now-btn {
     background-color: #FDF5EA;
     color: #c95442;
     font-family: Georgia, 'Times New Roman', Times, serif;
