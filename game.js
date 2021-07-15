@@ -79,6 +79,10 @@ let dealerSumEl = document.getElementById("sum-dealer-el")
 
 let betEl = document.getElementById("bet-el")
 
+hidePlayAgain()
+hideNewCard()
+hideStand()
+
 function renderPlayer () {
     playerNameEl.textContent = player.name + ": $" + player.chips
 }
@@ -110,7 +114,13 @@ function dealCards() {
     dealerCards = [getRandomCard()]
     dealerSum = getSum(dealerCards)
     renderGame()
+    hideDealCards()
+    hideBet()
+    showNewCard()
+    showStand()
 }
+
+
 
 function renderGame() {
     //dealer
@@ -139,17 +149,19 @@ function renderGame() {
         message = "You've got Blackjack!"
         hasBlackJack = true
         playerAlive = false
+        hideShowButtons()
     } else {
         message = "You're out of the game!"
         playerAlive = false
+        hideShowButtons()
     }
     messageEl.textContent = message
 }
 
 function newCard() {
     if (playerAlive === true && hasBlackJack === false) {
-        let newPlayerCard = getRandomCard()
-        playerCards.push(newPlayerCard)
+        let card = getRandomCard()
+        playerCards.push(card)
         playerSum = getSum(playerCards)
         renderGame()        
     }
@@ -170,6 +182,7 @@ function dealerCard() {
     } 
     else {
         declareWinner()
+        hideShowButtons()
     } 
     
 }
@@ -209,6 +222,54 @@ function bet() {
     }
 }
 
+function hideShowButtons() {
+        hideNewCard()
+        hideStand()
+        showPlayAgain()
+}
+
+function hideBet() {
+    document.getElementById("bet").style.visibility = "hidden"
+}
+
+function showBet() {
+    document.getElementById("bet").style.visibility = "visible"
+}
+
+function hideDealCards() {
+    document.getElementById("deal-cards").style.visibility = "hidden"
+}
+
+function showDealCards() {
+    document.getElementById("deal-cards").style.visibility = "visible"
+}
+
+function hideNewCard() {
+    document.getElementById("new-card").style.visibility = "hidden"
+}
+
+function showNewCard() {
+    document.getElementById("new-card").style.visibility = "visible"
+}
+
+function hideStand() {
+    document.getElementById("stand").style.visibility = "hidden"
+}
+
+function showStand() {
+    document.getElementById("stand").style.visibility = "visible"
+}
+
+function hidePlayAgain() {
+    document.getElementById("play-again").style.visibility = "hidden"
+}
+
+function showPlayAgain() {
+    document.getElementById("play-again").style.visibility = "visible"
+}
+
+
+
 function playAgain() {
     playerCards = []
     playerSum = 0
@@ -229,5 +290,8 @@ function playAgain() {
     // hasBlackJack = false
     // playerAlive = false
     
+    showBet()
+    showDealCards()
+
     // renderGame()
 }
