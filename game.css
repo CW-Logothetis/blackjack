@@ -41,15 +41,15 @@ button {
 }
 
 /* Bet Modal (background) */
-.bet-modal {
+#bet-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 80%; /* Full width */
+    height: 80%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
@@ -57,26 +57,26 @@ button {
   
   
   /* Bet Modal Content/Box */
-  .bet-modal-content {
+.bet-modal-content {
     /* background-color: rgba(0,0,0,0.9); */
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     /* border: 1px solid #888; */
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%; /* Could be more or less, depending on screen size */
     text-align: center;
     font-size: 30px;
   }
 
   /* The Close Button */
-.close {
+.bet-close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .bet-close:hover,
+  .bet-close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;

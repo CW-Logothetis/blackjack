@@ -80,18 +80,19 @@ let dealerSumEl = document.getElementById("sum-dealer-el")
 let betEl = document.getElementById("bet-el")
 
 
+hidePlayAgain()
+hideNewCard()
+hideStand()
 
-let betModal = document.getElementById("bet-modal")
 
-// document.getElementById("bet-modal").onload = function() {betModal()}
+// betModal()
+
+// document.getElementById("bet-modal").addEventListener("load", betModal)
 
 // function betModal() {
 //     betModal.style.display = "block"
 // }
 
-hidePlayAgain()
-hideNewCard()
-hideStand()
 
 function renderPlayer () {
     playerNameEl.textContent = player.name + ": $" + player.chips
@@ -128,7 +129,6 @@ function dealCards() {
     hideBet()
     showNewCard()
     showStand()
-    betModal.style.display = "block"
 }
 
 
@@ -174,7 +174,7 @@ function newCard() {
         let card = getRandomCard()
         playerCards.push(card)
         playerSum = getSum(playerCards)
-        renderGame()      
+        renderGame()    
     }
 }
 
@@ -273,6 +273,7 @@ function showStand() {
 
 function hidePlayAgain() {
     document.getElementById("play-again").style.visibility = "hidden"
+        betModal.style.display = "block"
 }
 
 function showPlayAgain() {
@@ -307,18 +308,20 @@ function playAgain() {
 
 // MODALS
 
+// Get the modal
+let betModal = document.getElementById("bet-modal");
 
 // Get the <span> element that closes the modal
-const betSpan = document.getElementsByClassName("bet-close")[0];
+let betSpan = document.getElementsByClassName("bet-close")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  betModal.style.display = "none";
+  betModal.style.display = "none"
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
-    betModal.style.display = "none";
+    betModal.style.display = "none"
   }
 }
