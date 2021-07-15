@@ -106,20 +106,14 @@ function dealCards() {
     playerCards = [firstCard, secondCard]
     playerSum = getSum(playerCards)
     
-    // dealerAlive = true
+    dealerAlive = true
     dealerCards = [getRandomCard()]
     dealerSum = getSum(dealerCards)
     renderGame()
 }
 
 function renderGame() {
-    playerCardsEl.textContent = ""
-    for (let i = 0; i < playerCards.length; i++) {
-        let path = `images/${playerCards[i].value + playerCards[i].suit}.png`
-        playerCardsEl.innerHTML += `
-            <img src="${path}" class="card-img">
-        `
-    }
+    //dealer
     dealerCardsEl.textContent = ""
     for (let i = 0; i < dealerCards.length; i++) {
         let path = `images/${dealerCards[i].value + dealerCards[i].suit}.png`
@@ -127,28 +121,34 @@ function renderGame() {
             <img src="${path}" class="card-img">
         `
     }
+    dealerSumEl.textContent = "Dealer: " + dealerSum
+    
+    //player
+    playerCardsEl.textContent = ""
+    for (let i = 0; i < playerCards.length; i++) {
+        let path = `images/${playerCards[i].value + playerCards[i].suit}.png`
+        playerCardsEl.innerHTML += `
+            <img src="${path}" class="card-img">
+        `
+    }
+    playerSumEl.textContent = `${player.name}: ${playerSum}`
 
-
-    playerSumEl.textContent = "Sum: " + playerSum
     if (playerSum <= 20) {
         message = "Do you want to draw a new card?"
-    } else if (playerSum = 21) {
+    } else if (playerSum === 21) {
         message = "You've got Blackjack!"
         hasBlackJack = true
+        playerAlive = false
     } else {
         message = "You're out of the game!"
         playerAlive = false
     }
     messageEl.textContent = message
-    // dealerSumEl.textContent = "Sum: " + dealerSum
-    
 }
-
 
 function newCard() {
     if (playerAlive === true && hasBlackJack === false) {
         let newPlayerCard = getRandomCard()
-        // sum += card
         playerCards.push(newPlayerCard)
         playerSum = getSum(playerCards)
         renderGame()        
@@ -175,8 +175,7 @@ function dealerCard() {
 }
 
 function stand() {
-    // if (playerAlive === true && hasBlackJack === false) 
-    if (playerAlive === true) {
+    if (playerAlive) {
     dealerCard()
     }
 }
