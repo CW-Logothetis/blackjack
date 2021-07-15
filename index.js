@@ -57,33 +57,35 @@ let player = {
     name: "Chris",
     chips: 200
 }
-
-
-
 let playerCards = []
 let playerSum = 0
-let dealerCards = []
-let dealerSum = 0
 let playerBet = 0
-
 let hasBlackJack = false
 let playerAlive = false
+
+let dealerCards = []
+let dealerSum = 0
 let dealerAlive = false
 
 let message = ""
 let messageEl = document.getElementById("message-el")
+
+let playerNameEl = document.getElementById("player-el")
 let playerSumEl = document.getElementById("sum-el")
-let dealerSumEl = document.getElementById("sum-dealer-el")
 let playerCardsEl = document.getElementById("cards-el")
-let dealerEl = document.getElementById("dealer-el")
-let playerEl = document.getElementById("player-el")
+
+let dealerCardsEl = document.getElementById("dealer-el")
+let dealerSumEl = document.getElementById("sum-dealer-el")
+
 let betEl = document.getElementById("bet-el")
 
-
-playerEl.textContent = player.name + ": $" + player.chips
+function renderPlayer () {
+    playerNameEl.textContent = player.name + ": $" + player.chips
+}
+renderPlayer()
 
 function getRandomCard() {
-    let randomCardIndex = Math.floor( Math.random()*52 )
+    let randomCardIndex = Math.floor( Math.random()*deck.length )
     deck.splice(randomCardIndex, 1)
     return deck[randomCardIndex] 
 }
@@ -98,14 +100,14 @@ function getSum(cardsArray) {
 
 function dealCards() {
     playerAlive = true
+    // hasGameStarted = true
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     playerCards = [firstCard, secondCard]
     playerSum = getSum(playerCards)
     
-    dealerAlive = true
-    let dealerFirst = getRandomCard()
-    dealerCards = [dealerFirst]
+    // dealerAlive = true
+    dealerCards = [getRandomCard()]
     dealerSum = getSum(dealerCards)
     renderGame()
 }
@@ -118,10 +120,10 @@ function renderGame() {
             <img src="${path}" class="card-img">
         `
     }
-    dealerEl.textContent = ""
+    dealerCardsEl.textContent = ""
     for (let i = 0; i < dealerCards.length; i++) {
         let path = `images/${dealerCards[i].value + dealerCards[i].suit}.png`
-        dealerEl.innerHTML += `
+        dealerCardsEl.innerHTML += `
             <img src="${path}" class="card-img">
         `
     }
@@ -138,7 +140,7 @@ function renderGame() {
         playerAlive = false
     }
     messageEl.textContent = message
-    dealerSumEl.textContent = "Sum: " + dealerSum
+    // dealerSumEl.textContent = "Sum: " + dealerSum
     
 }
 
@@ -155,8 +157,11 @@ function newCard() {
 
 function dealerCard() {
         
-        let newDealerCard = getRandomCard()
-        dealerCards.push(newDealerCard)
+        // let newDealerCard = getRandomCard()
+        let card = getRandomCard()
+        // dealerAlive = true
+        // dealerCards.push(newDealerCard)
+        dealerCards.push(card)
         dealerSum = getSum(dealerCards)
         renderGame()
         
@@ -170,7 +175,8 @@ function dealerCard() {
 }
 
 function stand() {
-    if (playerAlive === true && hasBlackJack === false) {
+    // if (playerAlive === true && hasBlackJack === false) 
+    if (playerAlive === true) {
     dealerCard()
     }
 }
@@ -179,45 +185,50 @@ function declareWinner() {
 if (playerSum > dealerSum || dealerSum > 21) {
     messageEl.textContent = `${player.name} Wins!`
     player.chips = player.chips + (playerBet * 2)
-    playerBet = 0
+    renderPlayer()
     
     } else if (dealerSum > playerSum) {
         messageEl.textContent= "Dealer wins!"
-        playerBet = 0
     }
     else {
         messageEl.textContent = "It's a tie."
         player.chips += playerBet
-        playerBet = 0
+        renderPlayer()
     }
-    playerAlive = false
-    playerEl.textContent = player.name + ": $" + player.chips
-    betEl.textContent = "Your bet: $" + playerBet
+    // playerAlive = false
+    // playerNameEl.textContent = player.name + ": $" + player.chips
+    // betEl.textContent = "Your bet: $" + playerBet
 }
 
 function bet() {
-    if (playerAlive === false && hasBlackJack === false && player.chips >= 10) {
-        player.chips = player.chips - 10
-        playerEl.textContent = player.name + ": $" + player.chips
+    if (dealerAlive === false && player.chips >= 10) {
+        player.chips -= 10
+        playerNameEl.textContent = player.name + ": $" + player.chips
         playerBet += 10 
         betEl.textContent = "Your bet: $" + playerBet
+        // renderPlayer() from Per why?
     }
 }
 
 function playAgain() {
     playerCards = []
     playerSum = 0
+    playerCardsEl.innerHTML = ""
+    playerSumEl.textContent = ""
+
     dealerCards = []
     dealerSum = 0
-    playerBet = 0
-    
-    playerCardsEl.innerHTML = ""
-    dealerEl.textContent = ""
-    betEl.textContent = ""
-    message = "Place a new bet"
+    dealerCardsEl.innerHTML = ""
+    dealerSumEl.textContent = ""
 
-    // hasBlackJack = false
-    playerAlive = false
+    messageEl.textContent = "Place a new bet"
+
+    playerBet = 0
+    betEl.textContent = ""
+    
     dealerAlive = false
-    renderGame()
+    // hasBlackJack = false
+    // playerAlive = false
+    
+    // renderGame()
 }
