@@ -1,25 +1,43 @@
 <html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <head>
         <link rel="stylesheet" href="index.css">
     </head>
-    <body>
-        <h1>Blackjack</h1>
-        <p id="message-el">Want to play a round?</p>
-        <p id="dealer-el"><i>Dealer:</i></p>
-        <p id="sum-dealer-el">Dealer's Sum:</p>
-        <p id="cards-el">Cards:</p>
-        <p id="sum-el">Sum:</p>
 
-        <div class="container-btn">
-            <button onclick="bet()">BET</button>
-            <button onclick="dealCards()">DEAL CARDS</button>
-            <button onclick="newCard()">NEW CARD</button>
-            <button onclick="stand()">STAND</button>
-            <button onclick="playAgain()">PLAY AGAIN</button>
+    <body>
+
+        <p>...all<br>
+            it takes<br>
+            is a<br>
+            little<br>
+            Confidence.</p>
+        <section>
+            <img src="images/sting-title.png" class="responsive-scale-down" alt="Illustration of lead characters">
+        </section>
+
+        <div>
+            <h1>THE STING</h1>
         </div>
+
+        <container>
+            <div class="input-center">
+                <h2>ENTER<br>
+                    NAME</h2>
+                <input id="input" type="text"></input>    
+            </div>
+            <div class="input-center">
+                <h2>STARTING<br>
+                    BALANCE</h2>
+                <input id="input" type="text" placeholder="€"></input> 
+            </div>
+        </container>
         
-        <p id="player-el"></p>
-        <p id="bet-el"></p>
-        <script src="index.js"></script>
+        <div class="btn-center">  
+            <a href="game.html" class="play-now-btn">PLAY NOW</a>
+        </div>
+
+        <h6>A SCRIMBA / CHRIS LOGOTHETIS PRESENTATION</h6>
+
+        <script src="game.js"></script>
+
     </body>
 </html>
