@@ -7,23 +7,42 @@
     <main>
         <h1>Blackjack</h1>
         <p id="message-el">Place your bet, then 'DEAL'</p>
-        <p id="player-el"></p>
-        <p id="bet-el"></p>
-        <p id="dealer-el"><i></i></p>
-        <p id="sum-dealer-el"></p>
-        <p id="cards-el"></p>
-        <p id="sum-el"></p>
-
+        
         <div class="container-btn">
-            <button id="bet" onclick="bet()">BET</button>
+            <!-- <button id="bet" onclick="bet()">BET</button> -->
             <button id="deal-cards" onclick="dealCards()">DEAL</button>
-            <button id="new-card" onclick="newCard()">NEW CARD</button>
-            <button id="stand" onclick="stand()">STAND</button>
-            <button id="play-again" onclick="playAgain()">PLAY AGAIN</button>
+            
+            <!-- <button id="new-card" onclick="newCard()">NEW CARD</button> -->
+            <!-- <button id="stand" onclick="stand()">STAND</button> -->
         </div>
         
-        <p id="player-el"></p>
-        <p id="bet-el"></p>
+        
+        
+        
+        <container>
+            <div id="column-left">
+                <button id="new-card" onclick="newCard()">NEW CARD</button>
+            </div>
+
+            <div id="column-center">
+                
+                <p id="dealer-el"></p>
+                <p id="bet-el"></p>
+                <p id="player-el"></p>
+                <p id="cards-el"></p>
+                
+            </div>
+
+            <div id="column-right">
+                <p id="sum-dealer-el"></p>
+                <button id="stand" onclick="stand()">STAND</button>
+                <p id="sum-el"></p>
+            </div>
+
+        </container>
+        
+        <button id="play-again" onclick="playAgain()">PLAY AGAIN</button>
+       
    
 
     <!-- Bet Modal -->
@@ -31,18 +50,38 @@
 
         <!-- Bet Modal content -->
         <div>
-        <!-- <div class="bet-modal-content"> turn back on for CSS styling, but all chips go vertical. Do it with vector chips -->
-        <span class="close">&times;</span>
-        <p><br>Bank: playerSum€</p>
-        <!-- <button id="all-in">ALL IN</button> -->
-        <img src="images/chips05.png" class="chips" id="c05">
-        <img src="images/chips10.png" class="chips" id="c10">
-        <img src="images/chips25.png" class="chips" id="c25">
-        <img src="images/chips50.png" class="chips" id="c50">
-        <img src="images/chips100.png" class="chips" id="c100">
-        </div>
+            <!-- <div class="bet-modal-content"> turn back on for CSS styling, but all chips go vertical. Do it with vector chips -->
+            <span class="close">&times;</span>
+            <p id="bank"></p>
+                <!-- <button id="all-in">ALL IN</button> -->
+                <div class="bet-modal-content">
+                    <img src="images/chips05.png" class="chips" id="c05">
+                    <img src="images/chips10.png" class="chips" id="c10">
+                    <img src="images/chips25.png" class="chips" id="c25">
+                    <img src="images/chips50.png" class="chips" id="c50">
+                    <img src="images/chips100.png" class="chips" id="c100">
+                </div>
+         </div>
   
     </div>
+
+    <!-- Win/Lose Modal -->
+    <div id="win-modal" class="win-lose-modal">
+        
+        <!-- Win/Lose Modal content -->
+        <!-- <div> -->
+        <!-- <div class="bet-modal-content"> turn back on for CSS styling, but all chips go vertical. Do it with vector chips -->
+            <!-- <span class="close">&times;</span> -->
+            <!-- <p id="bank"></p> -->
+            <!-- <button id="all-in">ALL IN</button> -->
+                <!-- <div class="win-lose-modal-content"> -->
+                    <!-- <button id="play-again" onclick="playAgain()">PLAY AGAIN</button> -->
+                <!-- </div> -->
+        <!-- </div> -->
+
+    </div>
+
+    
 
 </main>
         <!-- <script src="index.js"></script> -->

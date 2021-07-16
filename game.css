@@ -1,26 +1,97 @@
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    background-image: url("images/table.png");
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url("images/table-wood1.png");
+    
+    /* background-color: #B49156; */
     background-size: cover;
     font-weight: bold;
     color: white;
     text-align: center;
 }
 
-h1 {
-    color: goldenrod;
+h1, h2 {
+    text-align: center;
+    text-shadow: -1px 1px 0 #404040,
+				  1px 1px 0 #404040,
+				  1px -1px 0 #404040,
+				 -1px -1px 0 #404040; 
 }
 
-#message-el {
+h1 {
+    color: #c95442;
+    margin: 30px 200px;
+    letter-spacing: 1px;
+    font-size: 46px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
 }
+
+h2 {
+    color: #B49156;
+    font-size: 24px;
+    margin: 10px;
+    letter-spacing: 2px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p {
+    color: #404040;
+    font-size: 18px;
+    margin: 10px;
+    letter-spacing: 1px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+    text-align: center;
+}
+
+container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    height: 430px;
+    /* padding: 40px; */
+}
+
+#column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5%;
+    /* border: 1px solid red; */
+}
+
+#column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(253, 245, 234, 0.6);
+    border: 1px solid #c95442;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#column-right {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    align-items: center;
+    margin-left: 5%;
+    /* border: 1px solid red; */
+}
+
 
 .chips {
     width: 100px;
 }
 
 .card-img {
-    width: 50px;
+    width: 100px;
+    border-radius: 15px;
+    box-shadow:
+                 0 0 0 4px hsl(0, 0%, 100%),
+                 0 0 0 6px #B49156;
 }
 
 .container-btn {
@@ -30,9 +101,9 @@ h1 {
 }
 
 button {
-    color: #016f32;
+    /* color: #016f32;
     width: 150px;
-    background: goldenrod;
+    background: #B49156;
     padding-top: 5px;
     padding-bottom: 5px;
     font-weight: bold;
@@ -40,49 +111,198 @@ button {
     border-radius: 5px;
     margin: 10px auto;
     display: flex;
+    justify-content: center; */
+    display: flex;
     justify-content: center;
+    width: 250px;
+    background-color: #FDF5EA;
+    color: #c95442;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: -1px 1px 0 #404040,
+				  1px 1px 0 #404040,
+				  1px -1px 0 #404040,
+				 -1px -1px 0 #404040; 
+    border: 2px solid #c95442;
+    border-radius: 15px;
+    box-shadow:
+                 0 0 0 4px hsl(0, 0%, 100%),
+                 0 0 0 6px #c95442;
+    padding: 10px 25px;
 }
 
+#deal-cards {
+    text-align: center;
+    display: inline;
+    width: auto;
+    margin: 20px;
+}
 
-/* Bet Modal (background) */
+#play-again {
+    text-align: center;
+    display: inline;
+    width: auto;
+    margin: 20px;
+}
+
+#stand {
+    margin: 50px 0;
+}
+
+#sum-dealer-el {
+    font-size: 30px;
+}
+
+#sum-el {
+    font-size: 30px;
+}
+
+#bet-el {
+    font-size: 30px;
+    color: #c95442;
+    font-style: bold;
+}
+
+#message-el {
+    font-size: 30px;
+    color: #404040;
+    font-style: bold;
+}
+
+/* Bet Modal (background) w3schools*/
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    position: fixed;/* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 5%; /* Location of the box */
     left: 0;
     top: 0;
-    width: 25%; /* Half width */
+    width: 25%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: white; /* Fallback color */
-    /* background-color: rgba(245, 239, 239, 0.9);  w/ opacity */
+    background-color: rgba(245, 239, 239, 1); /* Fallback color */
+    background-color: rgba(245, 239, 239, 1);  /* w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 1s;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    /* border: 1px solid green; */
   }
   
   
   /* Bet Modal Content/Box */
 .bet-modal-content {
     /* background-color: rgba(0,0,0,0.9); */
+    /* position: fixed; */
+    bottom: 0;
+    color: #c95442;
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
-    /* border: 1px solid #888; */
+    border: 2px solid #c95442;
+    border-radius: 15px;
+    box-shadow:
+                 0 0 0 4px hsl(0, 0%, 100%),
+                 0 0 0 6px #c95442;
     width: 50%; /* Could be more or less, depending on screen size */
     text-align: center;
     font-size: 30px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 1s;
+    animation-name: slideIn;
+    animation-duration: 1s;
+    /* border: 1px solid green; */
   }
 
   /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
-    margin-right: 20px;
+    color: #c95442;
+    /* float: right; */
+    margin-left: 50%;
     font-size: 28px;
     font-weight: bold;
+    /* border: 1px solid green; */
   }
   
   .close:hover,
   .close:focus {
-    color: darkred;
+    color: dimgrey;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #bank {
+      margin: 30px;
+        color: #B49156;
+        font-size: 24px;
+      text-align: center;
+      text-shadow: -1px 1px 0 #404040,
+				  1px 1px 0 #404040,
+				  1px -1px 0 #404040,
+				 -1px -1px 0 #404040; 
+    /* border: 1px solid green; */
+  }
+
+  /* Win Lose Modal (background) w3schools*/
+.win-lose-modal {
+    display: none; /* Hidden by default */
+    position: fixed;/* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 5%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(245, 239, 239, 1); /* Fallback color */
+    background-color: rgba(245, 239, 239, 1);  /* w/ opacity */
+    /* -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-name: fadeIn;
+    animation-duration: 1s; */
+    border: 1px solid green;
+  }
+  
+  
+  /* Win Lose Modal Content/Box */
+.win-lose-modal-content {
+    /* background-color: rgba(0,0,0,0.9); */
+    /* position: fixed; */
+    bottom: 0;
+    color: #c95442;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 2px solid #c95442;
+    border-radius: 15px;
+    box-shadow:
+                 0 0 0 4px hsl(0, 0%, 100%),
+                 0 0 0 6px #c95442;
+    width: 50%; /* Could be more or less, depending on screen size */
+    text-align: center;
+    font-size: 30px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 1s;
+    animation-name: slideIn;
+    animation-duration: 1s;
+    border: 1px solid green;
+  }
+
+  /* The Close Button */
+.win-close {
+    color: #c95442;
+    /* float: right; */
+    margin-left: 50%;
+    font-size: 28px;
+    font-weight: bold;
+    border: 1px solid green;
+  }
+  
+  .win-close:hover,
+  .win-close:focus {
+    color: dimgrey;
     text-decoration: none;
     cursor: pointer;
   }

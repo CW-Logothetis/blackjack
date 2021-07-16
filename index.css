@@ -30,12 +30,12 @@ h1 {
     color: #c95442;
     margin: 20px 200px;
     letter-spacing: 1px;
-    font-size: 52px;
+    font-size: 46px;
 }
 
 h2 {
     color: #B49156;
-    font-size: 28px;
+    font-size: 24px;
     margin: 10px;
     letter-spacing: 2px;
 }
@@ -53,7 +53,7 @@ p {
     color: #404040; 
     font-size: 16px;
     text-align: center;
-    margin: 20px;
+    margin: 40px 0 20px 0;
 }
 
 section {
@@ -104,6 +104,18 @@ container {
     padding: 10px 25px;
 }
 
+#play-now-btn:hover,
+#play-now-btn:focus {
+    color: #B49156;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #B49156;
+    border-radius: 15px;
+    box-shadow:
+                 0 0 0 4px hsl(0, 0%, 100%),
+                 0 0 0 6px #B49156;
+  }
+
 img {
     margin: 0 auto;
     
@@ -111,7 +123,7 @@ img {
 
 .responsive-scale-down {
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
     height: auto;
   }
 
@@ -128,7 +140,8 @@ img {
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #c95442;
-    font-size: 24px;
+    font-size: 20px;
+    letter-spacing: 1px;
     padding: 10px 0px;
     text-shadow: -1px 1px 0 #404040,
 				  1px 1px 0 #404040,
@@ -143,8 +156,9 @@ img {
     color: #c95442;
     opacity: 1;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     font-style: italic;
+    letter-spacing: 1px;
     background-color: #FDF5EA;
     text-shadow: -1px 1px 0 #404040,
 				  1px 1px 0 #404040,
@@ -157,6 +171,7 @@ img {
     text-align: center;
     font-size: 20px;
     font-style: italic;
+    letter-spacing: 1px;
     background-color: #FDF5EA;
     text-shadow: -1px 1px 0 #404040,
 				  1px 1px 0 #404040,
@@ -169,6 +184,7 @@ img {
     text-align: center;
     font-size: 20px;
     font-style: italic;
+    letter-spacing: 1px;
     background-color: #FDF5EA;
     text-shadow: -1px 1px 0 #404040,
 				  1px 1px 0 #404040,
@@ -181,6 +197,7 @@ img {
     text-align: center;
     font-size: 20px;
     font-style: italic;
+    letter-spacing: 1px;
     background-color: #FDF5EA;
     text-shadow: -1px 1px 0 #404040,
 				  1px 1px 0 #404040,
