@@ -411,7 +411,7 @@ function playAgain() {
     // showBet()
     showDealCards()
     hidePlayAgain()
-    revertBackground()
+    // revertBackground()
     modal.style.display = "block"
     // renderGame()
 }
