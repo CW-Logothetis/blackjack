@@ -185,15 +185,19 @@ function renderGame() {
         message = ""
 
     } else if (playerSum === 21) {
-        message = "You've got Blackjack!"
+        
         hasBlackJack = true
         playerAlive = false
         hideShowButtons()
+        winnerModal.style.display = "block"
+        message = "You've got Blackjack!"
         
     } else {
-        message = "You're out of the game!"
+        
         playerAlive = false
         hideShowButtons()
+        winnerModal.style.display = "block"
+        message = "Dealer Wins!"
         
     }
     messageEl.textContent = message
@@ -244,16 +248,19 @@ function revertBackground() {
 
 function declareWinner() {
 if (playerSum > dealerSum || dealerSum > 21) {
+    winnerModal.style.display = "block"
     messageEl.textContent = `${player.name} Wins!`
     player.chips = player.chips + (playerBet * 2)
     renderPlayer()
     
     
     } else if (dealerSum > playerSum) {
+        winnerModal.style.display = "block"
         messageEl.textContent= "Dealer wins!"
         
     }
     else {
+        winnerModal.style.display = "block"
         messageEl.textContent = "It's a tie."
         player.chips += playerBet
         renderPlayer()

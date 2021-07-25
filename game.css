@@ -231,9 +231,16 @@ button {
 
 
 #message-el {
-    font-size: 30px;
-    color: #404040;
-    font-style: bold;
+    color: #c95442;
+    margin: 30px 200px 60px 200px;
+    letter-spacing: 2px;
+    font-size: 46px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-shadow: -1px 1px 0 #404040,
+                    1px 1px 0 #404040,
+                    1px -1px 0 #404040,
+                    -1px -1px 0 #404040;
 }
 
 #bet-overlay {
@@ -351,7 +358,6 @@ button {
     border: 1px solid green;
   }
   
-  
   /* Win Lose Modal Content/Box */
 .winner-modal-content {
     /* background-color: rgba(0,0,0,0.9); */
@@ -374,6 +380,23 @@ button {
     animation-duration: 1s;
     border: 5px solid green;
   }
+
+  #winner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    height: 430px;
+    margin: 70px 0 0 0;
+    /* padding: 40px; */
+}
+
+  #winner-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
   /* The Close Button */
 /* .win-close {
