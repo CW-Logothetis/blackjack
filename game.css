@@ -179,7 +179,7 @@ button {
     background-color: rgba(253, 245, 234, 1);
     min-width: 150px;
     min-height: 150px;
-    margin: 5px;
+    margin: 0 5px 0 0;
     padding: 20px;
     border-radius: 50%;
 }
@@ -201,7 +201,7 @@ button {
     background-color: rgba(253, 245, 234, 1);
     width: 150px;
     height: 150px;
-    margin: 5px;
+    margin: 0 5px 0 0;
     padding: 20px;
     border-radius: 50%;
 }
@@ -232,7 +232,7 @@ button {
 
 #message-el {
     color: #c95442;
-    margin: 30px 200px 60px 200px;
+    margin: 400px 200px 60px 200px;
     letter-spacing: 2px;
     font-size: 46px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -254,7 +254,7 @@ button {
     bottom: 0;
     right: 0;
     background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(52,52,55,0.6) 53%, rgba(4,9,4,1) 100%);
+    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(52,52,55,0.2) 53%, rgba(4,9,4,06) 100%);
 }
 
 /* Bet Modal (background) w3schools*/
@@ -336,7 +336,7 @@ button {
     bottom: 0;
     right: 0;
     background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(52,52,55,0.6) 53%, rgba(4,9,4,1) 100%);
+    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(52,52,55,0.8) 53%, rgba(4,9,4,1) 100%);
 }
 
 .winner-modal {
@@ -357,15 +357,13 @@ button {
     -webkit-animation-duration: 1s;
     animation-name: fadeIn;
     animation-duration: 1s; */
-    border: 1px solid green;
+    border: 5px solid green;
   }
   
   /* Win Lose Modal Content/Box */
 .winner-modal-content {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    border: 1px solid red;
+    border: 3px solid red;
+    
     /* background-color: rgba(0,0,0,0.9); */
     /* position: fixed; */
     /* bottom: 0;
@@ -387,22 +385,6 @@ button {
     border: 5px solid green; */
   }
 
-  #winner-container {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    border: 1px solid red;
-    /* height: 430px;
-    margin: 70px 0 0 0; */
-    /* padding: 40px; */
-}
-
-  #winner-center {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-}
 
   /* The Close Button */
 /* .win-close {

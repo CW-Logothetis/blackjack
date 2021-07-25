@@ -191,6 +191,7 @@ function renderGame() {
         hideShowButtons()
         winnerOverlay.style.display = "flex"
         message = "You've got Blackjack!"
+        player.chips = player.chips + (playerBet * 2)
         
     } else {
         
@@ -254,9 +255,11 @@ if (playerSum > dealerSum || dealerSum > 21) {
     renderPlayer()
     
     
+    
     } else if (dealerSum > playerSum) {
         winnerOverlay.style.display = "flex"
         messageEl.textContent= "Dealer wins!"
+        player.chips -= playerBet
         
     }
     else {
@@ -264,6 +267,7 @@ if (playerSum > dealerSum || dealerSum > 21) {
         messageEl.textContent = "It's a tie."
         player.chips += playerBet
         renderPlayer()
+        
         
     }
     
