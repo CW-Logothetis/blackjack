@@ -1,36 +1,32 @@
 <html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
         <link rel="stylesheet" href="game.css">
     </head>
+
     <body>
 
     <main>
-        <h1>Blackjack</h1>
-        <p id="message-el">Place your bet, then 'DEAL'</p>
+        <h1>THE HOOK</h1>
+        <!-- <p id="message-el"></p> -->
         
-        <div class="container-btn">
-            <!-- <button id="bet" onclick="bet()">BET</button> -->
-            <button id="deal-cards" onclick="dealCards()">DEAL</button>
-            
-            <!-- <button id="new-card" onclick="newCard()">NEW CARD</button> -->
-            <!-- <button id="stand" onclick="stand()">STAND</button> -->
-        </div>
-        
-        
-        
+        <!-- <div class="container-btn">
+            Defunct. Deal and Play Again used to be here
+        </div> -->
         
         <container>
             <div id="column-left">
-                <button id="new-card" onclick="newCard()">NEW CARD</button>
+                <button id="new-card" onclick="newCard()">HIT</button>
             </div>
 
             <div id="column-center">
                 
                 <p id="dealer-el"></p>
-                <p id="bet-el"></p>
-                <p id="player-el"></p>
+                <!-- <p id="message-el"></p> -->
+                <p id="player-el">Bank: 0€</p>
+                <p id="bet-el">Bet: 0€</p>
                 <p id="cards-el"></p>
-                
+                <!-- <p id="bank"></p> -->
             </div>
 
             <div id="column-right">
@@ -38,31 +34,32 @@
                 <button id="stand" onclick="stand()">STAND</button>
                 <p id="sum-el"></p>
             </div>
-
         </container>
+
+        <p id="message-el"></p>
         
         <button id="play-again" onclick="playAgain()">PLAY AGAIN</button>
        
-   
 
-    <!-- Bet Modal -->
-    <div id="bet-modal" class="modal">
-
-        <!-- Bet Modal content -->
-        <div>
-            <!-- <div class="bet-modal-content"> turn back on for CSS styling, but all chips go vertical. Do it with vector chips -->
-            <span class="close">&times;</span>
-            <p id="bank"></p>
+    <!-- Bet Overlay -->
+    <div id="bet-overlay">
+        <!-- Bet Modal -->
+        <div id="bet-modal">
+            <!-- Bet Modal content -->
+            <div>               
+              
                 <!-- <button id="all-in">ALL IN</button> -->
-                <div class="bet-modal-content">
-                    <img src="images/chips05.png" class="chips" id="c05">
-                    <img src="images/chips10.png" class="chips" id="c10">
-                    <img src="images/chips25.png" class="chips" id="c25">
-                    <img src="images/chips50.png" class="chips" id="c50">
-                    <img src="images/chips100.png" class="chips" id="c100">
-                </div>
-         </div>
-  
+                    <div id="bet-modal-content">                  
+                        <img src="images/chips05.png" class="chips" id="c05">
+                        <img src="images/chips10.png" class="chips" id="c10">
+                        <img src="images/chips25.png" class="chips" id="c25">
+                        <img src="images/chips50.png" class="chips" id="c50">
+                        <img src="images/chips100.png" class="chips" id="c100">
+                    </div>
+                    <button id="deal-cards" onclick="dealCards()">DEAL</button>
+            </div>
+
+        </div>
     </div>
 
     <!-- Win/Lose Modal -->
@@ -83,9 +80,11 @@
 
     
 
-</main>
-        <!-- <script src="index.js"></script> -->
+    </main>
+       
+    <!-- <script src="index.js"></script> -->
         <script src="game.js"></script>
 
     </body>
+
 </html>

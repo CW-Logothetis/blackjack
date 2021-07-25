@@ -1,12 +1,15 @@
-body {
+html, body {
+
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-image: url("images/table-wood1.png");
-    
-    /* background-color: #B49156; */
+    background-image: url("images/table-wood.png");
+    background-color: #B49156;
     background-size: cover;
     font-weight: bold;
     color: white;
     text-align: center;
+    /* width: 1000px; */
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 h1, h2 {
@@ -19,7 +22,7 @@ h1, h2 {
 
 h1 {
     color: #c95442;
-    margin: 30px 200px;
+    margin: 30px 200px 60px 200px;
     letter-spacing: 1px;
     font-size: 46px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -39,7 +42,7 @@ p {
     font-size: 18px;
     margin: 10px;
     letter-spacing: 1px;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
 }
 
@@ -49,6 +52,7 @@ container {
     align-items: center;
     /* border: 1px solid red; */
     height: 430px;
+    margin: 5% 0;
     /* padding: 40px; */
 }
 
@@ -82,8 +86,9 @@ container {
 }
 
 
+
 .chips {
-    width: 100px;
+    width: 70px;
 }
 
 .card-img {
@@ -114,7 +119,7 @@ button {
     justify-content: center; */
     display: flex;
     justify-content: center;
-    width: 250px;
+    width: 200px;
     background-color: #FDF5EA;
     color: #c95442;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -139,7 +144,7 @@ button {
     text-align: center;
     display: inline;
     width: auto;
-    margin: 20px;
+    margin: 0px 0 30px 0;
 }
 
 #play-again {
@@ -150,22 +155,80 @@ button {
 }
 
 #stand {
-    margin: 50px 0;
+    margin: 100px 0;
 }
 
-#sum-dealer-el {
-    font-size: 30px;
+#player-el {
+    margin: 30px;
+      color: #B49156;
+      font-size: 30px;
+      letter-spacing: 2px;
+    text-align: center;
+    text-shadow: -1px 1px 0 #404040,
+                1px 1px 0 #404040,
+                1px -1px 0 #404040,
+               -1px -1px 0 #404040; 
+  /* border: 1px solid green; */
 }
 
-#sum-el {
-    font-size: 30px;
+.player-sum-circle {
+    position: relative;
+    color: #c95442;
+    font-size: 42px;
+    text-align: center;
+    background-color: rgba(253, 245, 234, 1);
+    min-width: 150px;
+    min-height: 150px;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 50%;
 }
 
 #bet-el {
     font-size: 30px;
     color: #c95442;
     font-style: bold;
+    letter-spacing: 2px;
+    text-shadow: -1px 1px 0 #404040,
+                    1px 1px 0 #404040,
+                    1px -1px 0 #404040,
+                    -1px -1px 0 #404040; 
 }
+
+.dealer-sum-circle {
+    color: #c95442;
+    font-size: 42px;
+    background-color: rgba(253, 245, 234, 1);
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+#sum-dealer-el {
+    font-size: 30px;
+    color: rgba(245, 239, 239, 0.9);
+    font-style: bold;
+    letter-spacing: 2px;
+    text-shadow: -1px 1px 0 #404040,
+                    1px 1px 0 #404040,
+                    1px -1px 0 #404040,
+                    -1px -1px 0 #404040;
+}
+
+#sum-el {
+    font-size: 30px;
+    color: rgba(245, 239, 239, 0.9);
+    font-style: bold;
+    letter-spacing: 2px;
+    text-shadow: -1px 1px 0 #404040,
+                    1px 1px 0 #404040,
+                    1px -1px 0 #404040,
+                    -1px -1px 0 #404040;
+}
+
+
 
 #message-el {
     font-size: 30px;
@@ -173,19 +236,32 @@ button {
     font-style: bold;
 }
 
-/* Bet Modal (background) w3schools*/
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;/* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 5%; /* Location of the box */
-    left: 0;
+#bet-overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1000;
     top: 0;
-    width: 25%; /* Full width */
-    height: 100%; /* Full height */
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(52,52,55,0.6) 53%, rgba(4,9,4,1) 100%);
+}
+
+/* Bet Modal (background) w3schools*/
+#bet-modal {
+    position: absolute;/* Stay in place */
+    z-index: 1010; /* Sit on top */
+    padding-top: 0%; /* Location of the box */
+    bottom: 0px;
+    margin: 0 auto;
+    width: 100%; /* Full width */
+    height: auto; 
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(245, 239, 239, 1); /* Fallback color */
-    background-color: rgba(245, 239, 239, 1);  /* w/ opacity */
+    background: rgba(245, 239, 239, 1); /* Fallback color */
+    background: rgba(180, 145, 86, 0.5);  /* w/ opacity */
     -webkit-animation-name: fadeIn; /* Fade in the background */
     -webkit-animation-duration: 1s;
     animation-name: fadeIn;
@@ -195,59 +271,66 @@ button {
   
   
   /* Bet Modal Content/Box */
-.bet-modal-content {
-    /* background-color: rgba(0,0,0,0.9); */
-    /* position: fixed; */
-    bottom: 0;
+#bet-modal-content {
+    background-color: rgba(180, 145, 86, 0.8);
+    /* position: relative; */
+    /* bottom: 0; */
     color: #c95442;
-    margin: 5% auto; /* 15% from the top and centered */
+    margin: 30px auto; /* 15% from the top and centered */
     padding: 20px;
     border: 2px solid #c95442;
     border-radius: 15px;
     box-shadow:
                  0 0 0 4px hsl(0, 0%, 100%),
                  0 0 0 6px #c95442;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 400px; /* Could be more or less, depending on screen size */
     text-align: center;
     font-size: 30px;
     -webkit-animation-name: slideIn;
     -webkit-animation-duration: 1s;
     animation-name: slideIn;
     animation-duration: 1s;
+    z-index: 500;
     /* border: 1px solid green; */
   }
 
   /* The Close Button */
-.close {
+/* .close {
     color: #c95442;
-    /* float: right; */
+    float: right;
     margin-left: 50%;
     font-size: 28px;
     font-weight: bold;
-    /* border: 1px solid green; */
-  }
+    z-index: 1;
+    /* border: 1px solid green;
+ }
   
   .close:hover,
   .close:focus {
     color: dimgrey;
     text-decoration: none;
-    cursor: pointer;
-  }
+    cursor: pointer; 
+  } */
 
-  #bank {
-      margin: 30px;
-        color: #B49156;
-        font-size: 24px;
-      text-align: center;
-      text-shadow: -1px 1px 0 #404040,
-				  1px 1px 0 #404040,
-				  1px -1px 0 #404040,
-				 -1px -1px 0 #404040; 
-    /* border: 1px solid green; */
-  }
+  
 
   /* Win Lose Modal (background) w3schools*/
-.win-lose-modal {
+
+  #winner-overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(52,52,55,0.6) 53%, rgba(4,9,4,1) 100%);
+}
+
+.winner-modal {
     display: none; /* Hidden by default */
     position: fixed;/* Stay in place */
     z-index: 1; /* Sit on top */
@@ -257,8 +340,10 @@ button {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(245, 239, 239, 1); /* Fallback color */
-    background-color: rgba(245, 239, 239, 1);  /* w/ opacity */
+    background-color: rgba(245, 239, 239, 1); 
+    /* Fallback color */
+    background-color: rgba(245, 239, 239, 1);
+    /* w/ opacity */
     /* -webkit-animation-name: fadeIn;
     -webkit-animation-duration: 1s;
     animation-name: fadeIn;
@@ -268,7 +353,7 @@ button {
   
   
   /* Win Lose Modal Content/Box */
-.win-lose-modal-content {
+.winner-modal-content {
     /* background-color: rgba(0,0,0,0.9); */
     /* position: fixed; */
     bottom: 0;
@@ -287,13 +372,13 @@ button {
     -webkit-animation-duration: 1s;
     animation-name: slideIn;
     animation-duration: 1s;
-    border: 1px solid green;
+    border: 5px solid green;
   }
 
   /* The Close Button */
-.win-close {
+/* .win-close {
     color: #c95442;
-    /* float: right; */
+    float: right;
     margin-left: 50%;
     font-size: 28px;
     font-weight: bold;
@@ -305,4 +390,4 @@ button {
     color: dimgrey;
     text-decoration: none;
     cursor: pointer;
-  }
+  } */

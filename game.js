@@ -86,17 +86,17 @@ let dealerCardsEl = document.getElementById("dealer-el")
 let dealerSumEl = document.getElementById("sum-dealer-el")
 
 let betEl = document.getElementById("bet-el")
-let modalBank = document.getElementById("bank")
+// let modalBank = document.getElementById("bank")
 
 window.onload = function() {
-    modal.style.display = "block"
+    betModal.style.display = "block"
   }
 
 // hideBet()
 hidePlayAgain()
 hideNewCard()
 hideStand()
-hideBank()
+// hideBank()
 
 
 function renderPlayer() {
@@ -104,11 +104,11 @@ function renderPlayer() {
 }
 renderPlayer()
 
-function renderBank() {
-    modalBank.textContent = "Bank: $" + player.chips
-}
+// function renderBank() {
+//     modalBank.textContent = "Bank: $" + player.chips
+// }
 
-renderBank()
+// renderBank()
 
 function getRandomCard() {
     let randomCardIndex = Math.floor( Math.random()*deck.length )
@@ -120,8 +120,7 @@ function getSum(cardsArray) {
     let cardsSum = 0
     for (let i = 0; i < cardsArray.length; i++) {
         cardsSum += cardsArray[i].numValue
-    }
-    return cardsSum
+    } return cardsSum
 }
 
 function dealCards() {
@@ -141,7 +140,8 @@ function dealCards() {
     showNewCard()
     showStand()
     showBank()
-    modal.style.display = "none"
+    betModal.style.display = "none"
+    console.log(firstCard)
 }
 
 
@@ -155,7 +155,21 @@ function renderGame() {
             <img src="${path}" class="card-img">
         `
     }
-    dealerSumEl.textContent = dealerSum + " Dealer"
+    dealerSumEl.innerHTML = dealerSum + " Dealer"
+    dealerSumEl.innerHTML = `<span class="dealer-sum-circle">${dealerSum}</span> Dealer`
+    
+//     dealerSumEl.innerHTML =
+//     `<div class="circle">
+//         <div class="circle__inner">
+//             <div class="circle__wrapper">
+//                     <span class="circle__content">${dealerSum}</span>
+//             </div>
+//         </div>
+//     </div>
+// Dealer`
+    
+    
+    
     
     //player
     playerCardsEl.textContent = ""
@@ -165,10 +179,11 @@ function renderGame() {
             <img src="${path}" class="card-img">
         `
     }
-    playerSumEl.textContent = `${playerSum} ${player.name}`
+    playerSumEl.innerHTML = `<span class="player-sum-circle">${playerSum}</span> ${player.name}`
 
     if (playerSum <= 20) {
-        message = "Do you want to draw a new card?"
+        message = ""
+
     } else if (playerSum === 21) {
         message = "You've got Blackjack!"
         hasBlackJack = true
@@ -283,7 +298,7 @@ bet05.addEventListener("click", function() {
         player.chips -= 5
         playerNameEl.textContent = "Bank: $" + player.chips
         playerBet += 5 
-        betEl.textContent = "Your bet: $" + playerBet
+        betEl.innerHTML = "Bet: $" + playerBet
         modalBank.textContent = "Bank: $" + player.chips
         // renderPlayer() from Per why?
     }
@@ -294,7 +309,7 @@ bet10.addEventListener("click", function() {
         player.chips -= 10
         playerNameEl.textContent = "Bank: $" + player.chips
         playerBet += 10
-        betEl.textContent = "Your bet: $" + playerBet
+        betEl.textContent = "Bet: $" + playerBet
         modalBank.textContent = "Bank: $" + player.chips
         // renderPlayer() from Per why?
     }
@@ -305,7 +320,7 @@ bet25.addEventListener("click", function() {
         player.chips -= 25
         playerNameEl.textContent = "Bank: $" + player.chips
         playerBet += 25
-        betEl.textContent = "Your bet: $" + playerBet
+        betEl.textContent = "Bet: $" + playerBet
         modalBank.textContent = "Bank: $" + player.chips
         // renderPlayer() from Per why?
     }
@@ -316,7 +331,7 @@ bet50.addEventListener("click", function() {
         player.chips -= 50
         playerNameEl.textContent = "Bank: $" + player.chips
         playerBet += 50
-        betEl.textContent = "Your bet: $" + playerBet
+        betEl.textContent = "Bet: $" + playerBet
         modalBank.textContent = "Bank: $" + player.chips
         // renderPlayer() from Per why?
     }
@@ -327,7 +342,7 @@ bet100.addEventListener("click", function() {
         player.chips -= 100
         playerNameEl.textContent = "Bank: $" + player.chips
         playerBet += 100
-        betEl.textContent = "Your bet: $" + playerBet
+        betEl.textContent = "Bet: $" + playerBet
         modalBank.textContent = "Bank: $" + player.chips
         // renderPlayer() from Per why?
     }
@@ -412,7 +427,7 @@ function playAgain() {
     showDealCards()
     hidePlayAgain()
     // revertBackground()
-    modal.style.display = "block"
+    betModal.style.display = "block"
     // renderGame()
 }
 
@@ -421,15 +436,15 @@ function playAgain() {
 // a. Bet Modal
 
 // Get the modal
-let modal = document.getElementById("bet-modal");
+let betModal = document.getElementById("bet-overlay");
 
 // Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
+// let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+// span.onclick = function() {
+//   betModal.style.display = "none";
+// }
 
 // When the user clicks anywhere outside of the modal, close it
 // window.onclick = function(event) {
@@ -441,7 +456,7 @@ span.onclick = function() {
 //b. Win Lose Modal
 
 // Get the modal
-let winModal = document.getElementById("win-modal");
+let winnerModal = document.getElementById("winner-overlay");
 
 // Get the <span> element that closes the modal
 // let span = document.getElementsByClassName("close")[0];
