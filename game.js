@@ -147,6 +147,7 @@ function dealCards() {
 
 
 function renderGame() {
+
     //dealer
     dealerCardsEl.textContent = ""
     for (let i = 0; i < dealerCards.length; i++) {
@@ -157,20 +158,7 @@ function renderGame() {
     }
     dealerSumEl.innerHTML = dealerSum + " Dealer"
     dealerSumEl.innerHTML = `<span class="dealer-sum-circle">${dealerSum}</span> Dealer`
-    
-//     dealerSumEl.innerHTML =
-//     `<div class="circle">
-//         <div class="circle__inner">
-//             <div class="circle__wrapper">
-//                     <span class="circle__content">${dealerSum}</span>
-//             </div>
-//         </div>
-//     </div>
-// Dealer`
-    
-    
-    
-    
+     
     //player
     playerCardsEl.textContent = ""
     for (let i = 0; i < playerCards.length; i++) {
@@ -191,7 +179,6 @@ function renderGame() {
         hideShowButtons()
         winnerOverlay.style.display = "flex"
         message = "You've got Blackjack!"
-        player.chips = player.chips + (playerBet * 2)
         
     } else {
         
@@ -255,11 +242,9 @@ if (playerSum > dealerSum || dealerSum > 21) {
     renderPlayer()
     
     
-    
     } else if (dealerSum > playerSum) {
         winnerOverlay.style.display = "flex"
         messageEl.textContent= "Dealer wins!"
-        player.chips -= playerBet
         
     }
     else {
@@ -268,7 +253,6 @@ if (playerSum > dealerSum || dealerSum > 21) {
         player.chips += playerBet
         renderPlayer()
         
-        
     }
     
     
@@ -276,16 +260,6 @@ if (playerSum > dealerSum || dealerSum > 21) {
     // playerNameEl.textContent = player.name + ": $" + player.chips
     // betEl.textContent = "Your bet: $" + playerBet
 }
-
-// function bet() {
-//     if (dealerAlive === false && player.chips >= 10) {
-//         player.chips -= 10
-//         playerNameEl.textContent = player.name + ": $" + player.chips
-//         playerBet += 10 
-//         betEl.textContent = "Your bet: $" + playerBet
-//         // renderPlayer() from Per why?
-//     }
-// }
 
 // let betAll = document.getElementById("all-in")
 let bet05 = document.getElementById("c05")
@@ -425,8 +399,6 @@ function playAgain() {
     dealerCardsEl.innerHTML = ""
     dealerSumEl.textContent = ""
 
-    // messageEl.textContent = "Place a new bet"
-
     playerBet = 0
     betEl.textContent = ""
     
@@ -450,20 +422,6 @@ function playAgain() {
 // Get the modal
 let betModal = document.getElementById("bet-overlay");
 
-// Get the <span> element that closes the modal
-// let span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   betModal.style.display = "none";
-// }
-
-// When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target !== modal) {
-//     modal.style.display = "none";
-//   }
-// }
 
 //b. Win Lose Modal
 
