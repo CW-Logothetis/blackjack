@@ -189,14 +189,14 @@ function renderGame() {
         hasBlackJack = true
         playerAlive = false
         hideShowButtons()
-        winnerModal.style.display = "block"
+        winnerOverlay.style.display = "flex"
         message = "You've got Blackjack!"
         
     } else {
         
         playerAlive = false
         hideShowButtons()
-        winnerModal.style.display = "block"
+        winnerOverlay.style.display = "flex"
         message = "Dealer Wins!"
         
     }
@@ -248,19 +248,19 @@ function revertBackground() {
 
 function declareWinner() {
 if (playerSum > dealerSum || dealerSum > 21) {
-    winnerModal.style.display = "block"
+    winnerOverlay.style.display = "flex"
     messageEl.textContent = `${player.name} Wins!`
     player.chips = player.chips + (playerBet * 2)
     renderPlayer()
     
     
     } else if (dealerSum > playerSum) {
-        winnerModal.style.display = "block"
+        winnerOverlay.style.display = "flex"
         messageEl.textContent= "Dealer wins!"
         
     }
     else {
-        winnerModal.style.display = "block"
+        winnerOverlay.style.display = "flex"
         messageEl.textContent = "It's a tie."
         player.chips += playerBet
         renderPlayer()
@@ -421,7 +421,7 @@ function playAgain() {
     dealerCardsEl.innerHTML = ""
     dealerSumEl.textContent = ""
 
-    messageEl.textContent = "Place a new bet"
+    // messageEl.textContent = "Place a new bet"
 
     playerBet = 0
     betEl.textContent = ""
@@ -434,6 +434,7 @@ function playAgain() {
     showDealCards()
     hidePlayAgain()
     // revertBackground()
+    winnerOverlay.style.display = "none"
     betModal.style.display = "block"
     // renderGame()
 }
@@ -463,7 +464,7 @@ let betModal = document.getElementById("bet-overlay");
 //b. Win Lose Modal
 
 // Get the modal
-let winnerModal = document.getElementById("winner-overlay");
+let winnerOverlay = document.getElementById("winner-overlay");
 
 // Get the <span> element that closes the modal
 // let span = document.getElementsByClassName("close")[0];
