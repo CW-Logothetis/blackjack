@@ -400,18 +400,20 @@ function playAgain() {
     dealerSumEl.textContent = ""
 
     playerBet = 0
-    betEl.textContent = ""
+    betEl.textContent = "Bet: 0€"
     
     dealerAlive = false
     // hasBlackJack = false
     // playerAlive = false
     
-    // showBet()
+    
     showDealCards()
     hidePlayAgain()
+    
     // revertBackground()
     winnerOverlay.style.display = "none"
     betModal.style.display = "block"
+    // showBet()
     // renderGame()
 }
 
